@@ -45,10 +45,6 @@ app.listen(port, () => {
 /* =======================
     CONNECT TO MONGODB SERVER
 ==========================*/
-mongoose.connect(config.mongodbUri)
-mongoose.Promise = global.Promise
-const db = mongoose.connection
-db.on('error', console.error)
-db.once('open', ()=>{
-    console.log('connected to mongodb server')
+mongoose.connect(config.mongodbUri, err => {
+    console.log(err)
 })

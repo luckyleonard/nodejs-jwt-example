@@ -27,7 +27,9 @@ User.statics.create = function(username, password) {
     })
 
     // return the Promise
-    return user.save()
+    return user.save(err => {
+        console.log(err)
+    })
 }
 
 // find one user by using username
